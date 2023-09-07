@@ -1,49 +1,34 @@
 import { useState } from 'react';
 import './estilos.css'
 
-export default function Celda({valor}){
-
-        const [numero,setNumero]=useState(valor);
-        const [activo,setActivo]=useState(false);
+export default function Celda({valor,onCeldaClick}){
 
 
-        function mostrarNumero() {
-            console.log(numero);
-            setActivo(true);
-        }
-
-        if(activo)
-            if (numero==2) {
+            if (valor==2) {
                 return(
-                    <button className="border border-2 border-dark-subtle fs-2 fw-bold text-success" style={{width:50}}>
-                        {numero}
+                    <button className="border border-2 border-dark-subtle fs-2 fw-bold text-success" style={{width:50}} onClick={onCeldaClick}>
+                        {valor}
                     </button>
                 )
-            }else if(numero==1){
+            }else if(valor==1){
                 return(
-                    <button className="border border-2 border-dark-subtle fs-2 fw-bold text-primary" style={{width:50}}>
-                        {numero}
+                    <button className="border border-2 border-dark-subtle fs-2 fw-bold text-primary" style={{width:50}} onClick={onCeldaClick}>
+                        {valor}
                     </button>
                 )
-            }else if(numero==0){
+            }else if(valor==0){
                 return(
-                    <button className="border border-2 border-dark-subtle fs-2 fw-bold text-primary" style={{width:50}}>
+                    <button className="border border-2 border-dark-subtle fs-2 fw-bold text-primary" style={{width:50}} onClick={onCeldaClick}>
                         &nbsp;
                     </button>
                 )            
             }else{
                 return(
-                    <button className="border border-2 border-dark-subtle fs-2 fw-bold text-dark" style={{width:50}}>
-                        {numero}
+                    <button className="border border-2 border-dark-subtle fs-2 fw-bold text-dark" style={{width:50}} onClick={onCeldaClick}>
+                        {valor}
                     </button>
                 )            
             }
-        else{
-            return(
-                <button className="border border-2 border-dark-subtle fs-2 fw-bold text-primary" style={{width:50}} onClick={mostrarNumero}>
-                    &nbsp;
-                </button>
-            )              
-        }
+
 
 }

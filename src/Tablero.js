@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import "./estilos.css";
 import Celda from "./Celda";
+import Tiempo from "./Tiempo";
+
 
 export default function Tablero(){
 
@@ -18,8 +21,23 @@ export default function Tablero(){
 
 
     return(
-        <div className="d-flex flex-wrap justify-content-center" style={{width:270}}>
-                {celdas}
+        <div className="container text-center"   style={{width:340}}>
+            <div className="grid bg-body-secondary py-2 px-4 borderOutSide m-0">
+                <div className="row bg-body-secondary borderInside ">
+                    <div className="d-flex flex-wrap justify-content-around">
+                        <div className='lcdText text-danger pe-2 m-2 borderInsideS'>10</div>
+                        <div className='align-self-center m-2 borderInsideS'><img src="acierto.png" style={{width:50}}></img></div>
+                        <Tiempo/>
+                    </div>
+                </div>
+                <div className="row borderInside bg-body-secondary text-center justify-content-center">
+                    <div className="col my-1 p-0">
+                        <div className="d-flex flex-wrap justify-content-center">
+                                {celdas}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
